@@ -1,0 +1,11 @@
+NoteForge
+├── note_forge/
+│   ├── __init__.py
+│   ├── knowledge_base.py
+│   ├── state.py
+│   ├── nodes.py
+│   └── graph.py
+├── tests/
+├── docs/
+├── app.py
+└── requirements.txt
