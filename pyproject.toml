@@ -12,7 +12,8 @@ dependencies = [
     "sentence-transformers",
     "streamlit",
     "langchain-community",
+    "python-dotenv",
 ]
 
-[tool.uv]
-dev-dependencies = []
+[dependency-groups]
+dev = []
