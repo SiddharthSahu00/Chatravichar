@@ -1,0 +1,18 @@
+[project]
+name = "note-forge"
+version = "0.1.0"
+description = "Agentic AI assistant for transforming learning materials into structured notes"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "langgraph",
+    "langchain",
+    "langchain-groq",
+    "chromadb",
+    "sentence-transformers",
+    "streamlit",
+    "langchain-community",
+]
+
+[tool.uv]
+dev-dependencies = []
