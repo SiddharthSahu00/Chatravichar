@@ -74,9 +74,6 @@ def initialize_components():
         save_node,
     )
 
-    checkpointer = MemorySaver()
-    app = app.compile(checkpointer=checkpointer)
-
     return app, collection, embedder
 
 
