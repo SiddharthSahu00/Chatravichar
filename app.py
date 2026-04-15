@@ -131,25 +131,12 @@ def main():
 
         st.session_state.messages.append({"role": "user", "content": prompt})
 
-        try:
-            config = {"configurable": {"thread_id": st.session_state.thread_id}}
-
-            existing_state = None
-            try:
-                existing_state = app.get_state(config)
-            except:
-                pass
-
-            if existing_state:
-                current_messages = list(existing_state.values.get("messages", []))
-                current_user_name = existing_state.values.get("user_name")
-            else:
-                current_messages = []
-                current_user_name = None
+try:
+            st.session_state.messages.append({"role": "user", "content": prompt})
 
             initial_state: NoteForgeState = {
                 "question": prompt,
-                "messages": current_messages,
+                "messages": list(st.session_state.get("app_messages", [])),
                 "route": "",
                 "retrieved": "",
                 "sources": [],
@@ -157,10 +144,19 @@ def main():
                 "answer": "",
                 "faithfulness": 0.0,
                 "eval_retries": 0,
-                "user_name": current_user_name,
+                "user_name": st.session_state.get("user_name", None),
             }
 
-            result = app.invoke(initial_state, config)
+            config = {"configurable": {"thread_id": st.session_state.thread_id}}
+
+            with st.spinner("Thinking..."):
+                result = app.invoke(initial_state, config)
+
+            answer = result.get("answer", "I couldn't generate a response.")
+            faithfulness = result.get("faithfulness", 0.0)
+            
+            st.session_state["app_messages"] = list(result.get("messages", []))
+            st.session_state["user_name"] = result.get("user_name")
 
             answer = result.get("answer", "I couldn't generate a response.")
             faithfulness = result.get("faithfulness", 0.0)
