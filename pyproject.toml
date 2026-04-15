@@ -21,6 +21,8 @@ dependencies = [
     "streamlit",
     "langchain-community",
     "python-dotenv",
+    "torch",
+    "torchvision",
 ]
 
 [dependency-groups]
