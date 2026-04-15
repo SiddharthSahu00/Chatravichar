@@ -6,7 +6,6 @@ LangGraph node functions for the NoteForge agent.
 import re
 from typing import Dict, Any
 from langchain_groq import ChatGroq
-from langchain_core.messages import HumanMessage, AIMessage
 
 
 FAITHFULNESS_THRESHOLD = 0.7
