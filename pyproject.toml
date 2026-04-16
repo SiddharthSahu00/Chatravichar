@@ -4,6 +4,14 @@ version = "0.1.0"
 description = "Agentic AI assistant for transforming learning materials into structured notes"
 readme = "README.md"
 requires-python = ">=3.13"
+authors = [{name = "NoteForge Team"}]
+license = {text = "MIT"}
+keywords = ["ai", "langgraph", "rag", "learning", "notes"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Education",
+    "Programming Language :: Python :: 3.13",
+]
 dependencies = [
     "langgraph",
     "langchain",
